@@ -32,8 +32,5 @@ TARGET_KERNEL_SOURCE := kernel/asus/sdm660
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/tpd_gesture"
 
-# Sepolicy
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-
 # Inherit the proprietary files
 include vendor/asus/X00TD/BoardConfigVendor.mk
