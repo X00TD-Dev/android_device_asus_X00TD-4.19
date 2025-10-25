@@ -8,6 +8,7 @@
 include device/asus/sdm660-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/asus/X00TD
+KERNEL_PATH := device/asus/X00TD-kernel
 
 # Assert
 TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
@@ -20,7 +21,13 @@ TARGET_BOOTLOADER_BOARD_NAME := sdm636
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Kernel
-TARGET_KERNEL_CONFIG := asus/X00TD_defconfig
+TARGET_NO_KERNEL_OVERRIDE := true
+LOCAL_KERNEL := $(KERNEL_PATH)/Image.gz-dtb
+PRODUCT_COPY_FILES += \
+	$(LOCAL_KERNEL):kernel
+
+# Workaround to make lineage's soong generator work
+TARGET_KERNEL_SOURCE := kernel/asus/sdm660
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/tpd_gesture"
