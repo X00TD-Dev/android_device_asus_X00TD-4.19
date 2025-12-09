@@ -18,14 +18,16 @@ $(call inherit-product, $(LOCAL_PATH)/device.mk)
 TARGET_BUILD_DEVICE_AS_WEBCAM := true
 
 # Inherit some common device props
-WITH_GMS := false
+WITH_GMS := true
+TARGET_USES_MINI_GAPPS := true
 TARGET_HAS_UDFPS := false
-TARGET_ENABLE_BLUR := false
+TARGET_ENABLE_BLUR := true
 TARGET_FACE_UNLOCK_SUPPORTED := true
 SYSTEM_OPTIMIZE_JAVA := true
 SYSTEMUI_OPTIMIZE_JAVA := true
 TARGET_EXCLUDES_AUDIOFX := true
 TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_DISABLE_EPPE := true
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_X00TD
